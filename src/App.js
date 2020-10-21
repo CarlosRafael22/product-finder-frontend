@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ProductCard from './components/ProductCard';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const [count, setCount] = useState(1);
@@ -43,6 +44,7 @@ function App() {
           Magazon Finder
         </a>
       </header> */}
+      <Navbar />
       <h1>Teste do MAGAZON</h1>
         <h3>Retornou um total de {count} items</h3>
         <h3>Fez {productsCounter} requisicoes</h3>
