@@ -20,6 +20,7 @@ function App() {
       console.log('Pegou produtos');
       setProductsCounter(productsCounter + 1);
       setProducts(data['products']);
+      setCount(data['products'].length);
       console.log(data['products'][0])
       console.log(products[0]);
     } catch (error) {
@@ -57,7 +58,8 @@ function App() {
               <ProductCard
                 link={product.link}
                 image_url={product.image_url}
-                name={product.name} />
+                name={product.name}
+                price={product.price} />
             ))
           }
         </div>
