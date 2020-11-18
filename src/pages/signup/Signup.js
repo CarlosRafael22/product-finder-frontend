@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveUser } from '../../redux/actions/Auth';
 import './Signup.css'
 
 
@@ -8,6 +10,9 @@ const SignupForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
+
+    const dispatch = useDispatch();
+    const authUser = useSelector(state => state.auth.user );
 
     const submitSignup = (event) => {
         event.preventDefault();
@@ -19,10 +24,12 @@ const SignupForm = () => {
             username: email
         };
         console.log(userToCreate)
-        history.push('/products');
+        dispatch(saveUser(userToCreate));
+        // history.push('/products');
     };
 
     console.log(name)
+    console.log(authUser)
     return (
         <form className="main-form" onSubmit={submitSignup}>
             <div className="form-group">
