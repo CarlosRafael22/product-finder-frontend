@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveUser } from '../../redux/actions/Auth';
+import { saveUser } from '../../redux/auth/actions';
+import { RootState } from '../../redux/index';
 import './Signup.css'
 
 
-const SignupForm = () => {
+export const SignupForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
 
     const dispatch = useDispatch();
-    const authUser = useSelector(state => state.auth.user );
+    const authUser = useSelector((state: RootState) => state.auth.user );
 
-    const submitSignup = (event) => {
+    const submitSignup = (event: React.FormEvent) => {
         event.preventDefault();
         console.log(event.target);
         const userToCreate = {
