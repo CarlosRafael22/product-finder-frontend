@@ -1,20 +1,19 @@
-import { AnyAction } from 'redux';
-import { SAVEUSER } from '../actions/Auth';
+import { SAVE_USER } from './actions';
 
-const initialState = {
-    user: {},
+export const initialState: AuthState = {
+    user: undefined,
     loggedIn: false
 };
 
 
-const reducer = (state = initialState, action: AnyAction) => {
+const reducer = (state = initialState, action: AuthActionTypes): AuthState => {
     const {
         type,
         payload
     } = action;
 
     switch(type) {
-        case SAVEUSER:
+        case SAVE_USER:
             return {
                 ...state,
                 user: payload,
